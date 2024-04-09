@@ -2,6 +2,7 @@ const CACHE_NAME = 'my-pwa-cache-v1';
 const urlsToCache = [
   './',
   'index.html',
+  'main.js',
   "assets/android/android-launchericon-512-512.png",
   "assets/android/android-launchericon-192-192.png",
   "assets/android/android-launchericon-144-144.png",

@@ -17,15 +17,15 @@ installButton.addEventListener("click", async () => {
 });
 
 function disableInAppInstallPrompt() {
-installPrompt = null;
-installButton.setAttribute("hidden", "");
+    installPrompt = null;
+    installButton.setAttribute("hidden", "");
 }
 
 window.addEventListener("appinstalled", () => {
-disableInAppInstallPrompt();
+    disableInAppInstallPrompt();
 });
 
 function disableInAppInstallPrompt() {
-installPrompt = null;
-installButton.setAttribute("hidden", "");
+    installPrompt = null;
+    installButton.setAttribute("hidden", "");
 }
