@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Mia PWA</title>
     <link rel="manifest" href="manifest.json">
+    <meta name="monetag" content="95d16d6d972d697d58927097edfd84d0">
 </head>
 <body>
     <h1>Benvenuto nella mia PWA</h1>
     <p>Questa è una semplice Progressive Web App.</p>
+    <p>Sorry for publicity</p>
 
     <!-- Aggiungi qui il tuo contenuto -->
 
@@ -16,7 +18,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
+                navigator.serviceWorker.register('serviceworker.js')
                     .then(registration => {
                         console.log('Service Worker registrato con successo: ', registration);
                     })
