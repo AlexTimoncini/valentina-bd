@@ -1,7 +1,7 @@
 {
-    "name": "La Mia PWA",
-    "short_name": "PWA",
-    "description": "Una semplice Progressive Web App",
+    "name": "Valentina Birthday",
+    "short_name": "Valentina-bd",
+    "description": "Oggi è il compleanno del mio amore!",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
@@ -38,5 +38,5 @@
         "type": "image/png"
       }
     ],
-    "orientation": "portrait"
+    "orientation": "landscape"
   }
