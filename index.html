@@ -9,8 +9,8 @@
 <body>
     <h1>Benvenuto nella mia PWA</h1>
     <p>Questa è una semplice Progressive Web App.</p>
-    <p>Sorry for publicity</p>
-
+    <button id="install" hidden>Install</button>
+    
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -24,5 +24,6 @@
             });
         }
     </script>
+    <script src="main.js"></script>
 </body>
 </html>
