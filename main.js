@@ -1,3 +1,5 @@
+let quack = document.getElementById('quack').play()
+
 let installPrompt = null;
 const installButton = document.querySelector("#install");
 
