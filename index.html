@@ -3,14 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Mia PWA</title>
+    <title>Valentina Birthday</title>
     <link rel="manifest" href="manifest.json">
+    <style>
+        *,
+        *::before,
+        *::after{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body{
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100vh;
+            background-color: rgb(255, 239, 224);
+        }
+        
+        
+        .title{
+            text-align: center;
+            font-size: 2rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 400;
+            letter-spacing: 7px;
+            color: rgb(252, 152, 81);
+        }
+
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .duck-box{
+            flex-grow: 3;
+        }
+
+        .duck{
+            height: 200px;
+            width: 200px;
+            background-color: rgb(252, 198, 81);
+            margin: 0 auto;
+        }
+
+        .counter-box{
+            flex-grow: 2;
+            text-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Benvenuto nella mia PWA</h1>
-    <p>Questa è una semplice Progressive Web App.</p>
-    <button id="install" hidden>Install</button>
-    
+    <h1 class="title">Ducky Counter</h1>
+    <div class="container">        
+        <div class="duck-box">
+            <div class="duck"></div>
+        </div>
+        <div class="counter-box">
+            <p>+</p>
+            <p>0x</p>
+            <p>-</p>
+        </div>
+    </div>
+    <button id="install" hidden>Install App</button>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
