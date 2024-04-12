@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio id="quack">
+    <!--AUDIOS LIST-->
+    <audio id="quack-0">
         <source src="assets/audio/quack.mp3" type="audio/mpeg">
     </audio>
     <h1 class="title">Ducky Counter</h1>
     <div class="container">        
         <div class="duck-box">
-            <div class="duck"></div>
+            <img class="duck" src="" alt="duck image">
         </div>
         <div class="counter-box">
-            <p>+</p>
-            <p>0x</p>
-            <p>-</p>
+            <p id="more">+</p>
+            <p><span id="counter">0</span>x</p>
+            <p id="less">-</p>
         </div>
     </div>
     <button id="install" hidden>Install App</button>
