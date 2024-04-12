@@ -3,6 +3,15 @@ const duck = document.querySelector('.duck'),
       less = document.getElementById('less'),
       counterDom = document.getElementById('counter')
 
+for(let i = 0; i < 18; i++){
+    let html = `
+    <audio id="quack-${i}">
+        <source src="assets/audio/quack-${i}.mp3" type="audio/mpeg">
+    </audio>
+    `
+    document.querySelector('body').insertAdjacentHTML('afterbegin', html)
+}
+
 let counter = localStorage.getItem('duckCounter')
 
 if(counter){
