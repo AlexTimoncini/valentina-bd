@@ -4,8 +4,8 @@
     "description": "Oggi è il compleanno del mio amore!",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#ffefe0",
+    "background_color": "#fff8f3",
+    "theme_color": "#ff7817",
     "icons": [
       {
         "src": "assets/android/android-launchericon-512-512.png",

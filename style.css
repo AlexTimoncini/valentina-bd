@@ -13,7 +13,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    background-color: rgb(255, 248, 243);
+    background-color: #fff8f3;
     font-family: "Comic Neue", cursive;
 }
 
@@ -23,7 +23,7 @@ body{
     font-size: 2rem;
     font-weight: 400;
     letter-spacing: 7px;
-    color: rgb(252, 152, 81);
+    color: #ff7817;
     padding: 20px 0;
     font-weight: 600;
 }
@@ -52,7 +52,7 @@ body{
     justify-content: center;
     font-size: 40px;
     font-weight: bold;
-    color: rgb(252, 152, 81);
+    color: #ff7817;
 }
 
 #more, #less{
@@ -61,4 +61,14 @@ body{
 
 .d-none{
     display: none;
+}
+
+#install{
+    margin: auto;
+    border: none;
+    padding: 8px 50px;
+    border-radius: 20px;
+    background-color: #ff7817;
+    color: #ff7817;
+    letter-spacing: 2px;
 }
