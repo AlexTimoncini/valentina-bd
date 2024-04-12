@@ -59,8 +59,13 @@ const isAppInstalled = () => {
 
 if (isAppInstalled()) {
     installButton.setAttribute("hidden", "")
+    let appClass = document.getElementById("app").classList
+    if (appClass.contains('d-none'))
+        appClass.remove('d-none')
 } else {
     installButton.removeAttribute("hidden")
+    if (!appClass.contains('d-none'))
+        appClass.add('d-none')
 }
 
 window.addEventListener("beforeinstallprompt", (event) => {

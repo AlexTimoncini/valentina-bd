@@ -58,3 +58,7 @@ body{
 #more, #less{
     cursor: pointer;
 }
+
+.d-none{
+    display: none;
+}
