@@ -1,7 +1,8 @@
 const duck = document.querySelector('.duck'),
       more = document.getElementById('more'),
       less = document.getElementById('less'),
-      counterDom = document.getElementById('counter')
+      counterDom = document.getElementById('counter'),
+      installButton = document.querySelector("#install");
 
 for(let i = 0; i < 18; i++){
     let html = `
