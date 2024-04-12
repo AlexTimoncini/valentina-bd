@@ -1,8 +1,7 @@
 const duck = document.querySelector('.duck'),
       more = document.getElementById('more'),
       less = document.getElementById('less'),
-      counterDom = document.getElementById('counter'),
-      installButton = document.querySelector("#install");
+      counterDom = document.getElementById('counter')
 
 for(let i = 0; i < 18; i++){
     let html = `
@@ -53,38 +52,45 @@ function pauseAllAudios() {
 }
 
 // INSTALLER
-// Check if app is installed
 const isAppInstalled = () => {
     return (window.matchMedia('(display-mode: standalone)').matches) || (navigator.standalone) || (window.innerWidth <= 800 && window.innerHeight <= 600);
 }
 
-let appClass = document.getElementById("app").classList
+let installPrompt = null;
+const appClass = document.getElementById("app").classList,
+      installButton = document.querySelector("#install");
+
 if (isAppInstalled()) {
-    installButton.setAttribute("hidden", "")
+    installButton.setAttribute("hidden", "");
     
     if (appClass.contains('d-none'))
-        appClass.remove('d-none')
+        appClass.remove('d-none');
 } else {
-    installButton.removeAttribute("hidden")
+    installButton.removeAttribute("hidden");
     if (!appClass.contains('d-none'))
-        appClass.add('d-none')
+        appClass.add('d-none');
 }
 
 window.addEventListener("beforeinstallprompt", (event) => {
-    event.preventDefault()
-    installButton.removeAttribute("hidden")
-})
+    event.preventDefault();
+    installPrompt = event;
+    installButton.removeAttribute("hidden");
+});
 
 installButton.addEventListener("click", async () => {
+    if (!installPrompt) {
+        return;
+    }
     const result = await installPrompt.prompt();
     console.log(`Install prompt was: ${result.outcome}`);
-    disableInAppInstallPrompt()
-})
+    disableInAppInstallPrompt();
+});
 
 function disableInAppInstallPrompt() {
-    installButton.setAttribute("hidden", "")
+    installPrompt = null;
+    installButton.setAttribute("hidden", "");
 }
 
 window.addEventListener("appinstalled", () => {
-    disableInAppInstallPrompt()
-})
+    disableInAppInstallPrompt();
+});
