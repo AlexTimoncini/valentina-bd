@@ -58,9 +58,10 @@ const isAppInstalled = () => {
     return (window.matchMedia('(display-mode: standalone)').matches) || (navigator.standalone) || (window.innerWidth <= 800 && window.innerHeight <= 600);
 }
 
+let appClass = document.getElementById("app").classList
 if (isAppInstalled()) {
     installButton.setAttribute("hidden", "")
-    let appClass = document.getElementById("app").classList
+    
     if (appClass.contains('d-none'))
         appClass.remove('d-none')
 } else {
