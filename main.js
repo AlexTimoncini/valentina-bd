@@ -5,12 +5,13 @@ const duck = document.querySelector('.duck'),
 
 for(let i = 0; i < 18; i++){
     let html = `
-    <audio id="quack-${i}">
+    <audio id="quack-${i}" preload="auto">
         <source src="assets/audio/quack-${i}.mp3" type="audio/mpeg">
-    </audio>
-    `
+    </audio>`
     document.querySelector('body').insertAdjacentHTML('afterbegin', html)
 }
+
+const audios = document.querySelectorAll('audio')
 
 let counter = localStorage.getItem('duckCounter')
 
@@ -35,6 +36,7 @@ less.addEventListener('click', ()=>{
 })
 
 function setDuck(){
+    pauseAllAudios()
     duck.src = 'assets/ducks/duck-'+counter+'.png'
     if(document.getElementById('quack-'+counter))
         document.getElementById('quack-'+counter).play()
@@ -42,30 +44,40 @@ function setDuck(){
     localStorage.setItem('duckCounter', counter)
 }
 
-/* INSTALLER */
-let installPrompt = null;
-const installButton = document.querySelector("#install");
+function pauseAllAudios() {
+    audios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+}
+
+// INSTALLER
+// Check if app is installed
+const isAppInstalled = () => {
+    return (window.matchMedia('(display-mode: standalone)').matches) || (navigator.standalone) || (window.innerWidth <= 800 && window.innerHeight <= 600);
+}
+
+if (isAppInstalled()) {
+    installButton.setAttribute("hidden", "")
+} else {
+    installButton.removeAttribute("hidden")
+}
+
 window.addEventListener("beforeinstallprompt", (event) => {
-    event.preventDefault();
-    installPrompt = event;
-    installButton.removeAttribute("hidden");
-});
+    event.preventDefault()
+    installButton.removeAttribute("hidden")
+})
+
 installButton.addEventListener("click", async () => {
-    if (!installPrompt) {
-        return;
-    }
     const result = await installPrompt.prompt();
     console.log(`Install prompt was: ${result.outcome}`);
-    disableInAppInstallPrompt();
-});
+    disableInAppInstallPrompt()
+})
+
 function disableInAppInstallPrompt() {
-    installPrompt = null;
-    installButton.setAttribute("hidden", "");
+    installButton.setAttribute("hidden", "")
 }
+
 window.addEventListener("appinstalled", () => {
-    disableInAppInstallPrompt();
-});
-function disableInAppInstallPrompt() {
-    installPrompt = null;
-    installButton.setAttribute("hidden", "");
-}
+    disableInAppInstallPrompt()
+})
